@@ -14,6 +14,12 @@
 - supports chroot
 - supports daemontools supervise
 
+## systemd
+
+Please note that systemd can be used instead of spawn-fcgi; just
+configure a `.socket` unit and add `StandardInput=socket` in the
+service.  (FastCGI applications expect the listening socket on STDIN.)
+
 ## Build
 
 [meson](https://mesonbuild.com/) is required to build.
@@ -30,7 +36,10 @@ Install:
 
     meson install -C build
 
-### Usage
+## Usage
 
 See man page, e.g. [rendered](https://manpages.debian.org/unstable/spawn-fcgi/spawn-fcgi.1.en.html)
 for debian unstable.
+
+See the `doc` directory for example `run-*` scripts for use with `runit`
+or `daemontools`.
